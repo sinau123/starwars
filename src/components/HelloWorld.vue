@@ -28,6 +28,9 @@ export default {
   setup(props) {
     const { msg } = toRefs(props)
     const state = reactive({ count: 0, films: [] })
+    const ss = reactive({
+      data: ['people', 'planets', 'films', 'starships', 'vehicles', 'species'],
+    })
 
     const getData = async () => {
       const { data } = await getFilms()

@@ -1,6 +1,7 @@
 {
   "name": "starwars",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.2",
     "@vue/compiler-sfc": "^3.0.5",
+    "sass": "^1.32.12",
     "vite": "^2.2.3",
     "vite-aliases": "^0.6.3"
   }
