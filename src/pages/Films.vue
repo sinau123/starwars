@@ -1,7 +1,7 @@
 <template>
   <div class="container is-max-desktop">
     <div class="columns is-multiline is-centered">
-      <div class="column is-half-tablet" v-for="film in films" :key="film.title">
+      <div v-for="film in films" :key="film.title" class="column is-half-tablet">
         <div class="card has-text-centered has-background-dark has-text-white-ter card-film">
           <div class="card-content">
             <div></div>
