@@ -11,15 +11,12 @@
   <div class="container is-max-desktop has-text-centered">
     <div class="block"></div>
     <div class="columns is-multiline is-centered">
-      <div class="column is-half-tablet" v-for="item in data" :key="item">
+      <div v-for="item in data" :key="item" class="column is-half-tablet">
         <router-link :to="{ name: item }">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img
-                  src="https://bulma.io/images/placeholders/1280x960.png"
-                  alt="Placeholder image"
-                />
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
               </figure>
             </div>
             <div class="card-content">
@@ -28,8 +25,8 @@
                   {{ item }}
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                  <a>@bulmaio</a>.
                   <a href="#">#css</a>
                 </p>
                 <a href="#">#responsive</a>

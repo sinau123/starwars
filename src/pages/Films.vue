@@ -1,26 +1,16 @@
 <template>
   <div class="container is-max-desktop">
     <div class="columns is-multiline is-centered">
-      <div
-        class="column is-half-tablet"
-        v-for="film in films"
-        :key="film.title"
-      >
-        <div
-          class="card has-text-centered has-background-dark has-text-white-ter card-film"
-        >
+      <div class="column is-half-tablet" v-for="film in films" :key="film.title">
+        <div class="card has-text-centered has-background-dark has-text-white-ter card-film">
           <div class="card-content">
             <div></div>
 
             <div class="content">
-              <p class="title is-4 has-text-white-ter">
-                {{ film.title }} ({{ getYear(film.release_date) }})
-              </p>
+              <p class="title is-4 has-text-white-ter">{{ film.title }} ({{ getYear(film.release_date) }})</p>
               <p class="subtitle is-6 has-text-white-ter">
                 by
-                <span class="is-italic has-text-weight-semibold">{{
-                  film.director
-                }}</span>
+                <span class="is-italic has-text-weight-semibold">{{ film.director }}</span>
               </p>
               <p class="has-text-justified is-italic desc">
                 {{ film.opening_crawl }}
@@ -29,15 +19,11 @@
                 <div class="block"></div>
                 <p class="">
                   Release Date:
-                  <span class="has-text-weight-semibold">{{
-                    film.release_date
-                  }}</span>
+                  <span class="has-text-weight-semibold">{{ film.release_date }}</span>
                 </p>
                 <p class="">
                   Producer:
-                  <span class="has-text-weight-semibold">{{
-                    film.producer
-                  }}</span>
+                  <span class="has-text-weight-semibold">{{ film.producer }}</span>
                 </p>
               </div>
             </div>
@@ -48,14 +34,10 @@
   </div>
 </template>
 <script>
-import { reactive, toRefs, getCurrentInstance } from 'vue'
-import { useRoute } from 'vue-router'
 import filmStore from '@/store/film'
 
 export default {
   setup() {
-    const state = reactive({ films: [] })
-    const progress = getCurrentInstance().appContext.config.globalProperties.$Progress.finish()
     const store = filmStore()
 
     return { films: store.list }
