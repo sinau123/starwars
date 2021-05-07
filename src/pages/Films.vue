@@ -1,6 +1,5 @@
 <template>
   <div class="container is-max-desktop">
-    <div class="block"></div>
     <div class="columns is-multiline is-centered">
       <div
         class="column is-half-tablet"
@@ -49,21 +48,17 @@
   </div>
 </template>
 <script>
-import { reactive, toRefs } from 'vue'
-import { getFilms } from '@/service/filmService.js'
+import { reactive, toRefs, getCurrentInstance } from 'vue'
+import { useRoute } from 'vue-router'
+import filmStore from '@/store/film'
+
 export default {
   setup() {
     const state = reactive({ films: [] })
+    const progress = getCurrentInstance().appContext.config.globalProperties.$Progress.finish()
+    const store = filmStore()
 
-    const getData = async () => {
-      const { data } = await getFilms()
-      console.log(data)
-      state.films = data.results
-    }
-
-    getData()
-
-    return { ...toRefs(state) }
+    return { films: store.list }
   },
 
   methods: {

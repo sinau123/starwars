@@ -1,7 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import filmStore from '@/store/film'
 
 const routes = [
-  { path: '/', name: 'home', component: () => import('@/pages/Home.vue') },
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('@/pages/Home.vue'),
+  },
   {
     path: '/planets',
     name: 'planets',
@@ -11,6 +16,15 @@ const routes = [
     path: '/films',
     name: 'films',
     component: () => import('@/pages/Films.vue'),
+    beforeEnter: async (to, from, next) => {
+      const store = filmStore()
+      try {
+        await store.setListFromAPI()
+        next()
+      } catch (e) {
+        console.error(e)
+      }
+    },
   },
   {
     path: '/species',
@@ -34,6 +48,7 @@ const routes = [
     component: () => import('@/pages/People.vue'),
   },
 ]
+
 export default createRouter({
   history: createWebHistory(),
   routes,
