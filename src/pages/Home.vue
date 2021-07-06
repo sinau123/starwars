@@ -8,7 +8,7 @@
     </div>
   </section>
 
-  <div class="container is-max-desktop has-text-centered">
+  <div ref="reveal" class="container is-max-desktop has-text-centered">
     <div class="block"></div>
     <div class="columns is-multiline is-centered">
       <div v-for="item in data" :key="item" class="column is-half-tablet">
@@ -42,6 +42,7 @@
 
 <script>
 import { reactive, toRefs } from 'vue'
+import scrollreveal from 'scrollreveal'
 
 export default {
   setup() {
@@ -51,6 +52,13 @@ export default {
 
     return { ...toRefs(state) }
   },
+  mounted() {
+    scrollreveal().reveal(this.$refs.reveal, {
+    scale: 0.85,
+    duration: 1000,
+    reset: true
+})
+  }
 }
 </script>
 
